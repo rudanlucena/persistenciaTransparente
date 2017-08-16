@@ -9,12 +9,17 @@ public class App {
         
         ClubeDao dao = ClubeDao.getInstance();
         Clube clube = new Clube();
-        clube.setNome("vasco");
+        clube.setNome("Vasco");
         clube.setCidade("RJ");
         clube.setEstadio("São Januario");
         clube.setDivisao(1);
         
-        dao.persist(clube);
+        //dao.persist(clube);
+        clube = dao.find(5);
+        clube.setNome("Icasa");
+        clube = dao.update(clube);
+        System.out.println("nome do clube: "+clube.getNome());
+        dao.remove(clube);
         
     }
 }
